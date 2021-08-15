@@ -1,2 +1,2 @@
 # Calculator
-small MVC Web App to better learn jQuery and C#
+Amall MVC Web App to better learn jQuery and C#.
