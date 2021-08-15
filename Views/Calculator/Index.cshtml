@@ -20,30 +20,32 @@
     </div>
     <table>
         <tr>
-            <td><input type="button" id="btn7" value="7" /></td>
-            <td><input type="button" id="btn8" value="8" /></td>
-            <td><input type="button" id="btn9" value="9" /></td>
-            <td><input type="button" id="btnDel" value="DEL" /></td>
-            <td><input type="button" id="btnClear" value="CLR" /></td>
+            <td><input type="button" id="btn7" value="7" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btn8" value="8" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btn9" value="9" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btnDel" value="DEL" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btnClear" value="CLR" style="height:40px;width:60px;"/></td>
         </tr>
         <tr>
-            <td><input type="button" id="btn4" value="4" /></td>
-            <td><input type="button" id="btn5" value="5" /></td>
-            <td><input type="button" id="btn6" value="6" /></td>
-            <td><input type="button" id="btnMult" value="*" /></td>
-            <td><input type="button" id="btnDiv" value="/" /></td>
+            <td><input type="button" id="btn4" value="4" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btn5" value="5" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btn6" value="6" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btnMult" value="*" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btnDiv" value="/" style="height:40px;width:60px;"/></td>
         </tr>
         <tr>
-            <td><input type="button" id="btn1" value="1" /></td>
-            <td><input type="button" id="btn2" value="2" /></td>
-            <td><input type="button" id="btn3" value="3" /></td>
-            <td><input type="button" id="btnAdd" value="+" /></td>
-            <td><input type="button" id="btnSub" value="-" /></td>
+            <td><input type="button" id="btn1" value="1" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btn2" value="2" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btn3" value="3" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btnAdd" value="+" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btnSub" value="-" style="height:40px;width:60px;"/></td>
         </tr>
         <tr>
-            <td><input type="button" id="btn0" value="0" /></td>
-            <td><input type="button" id="btnDecimal" value="." /></td>
-            <td><input type="button" id="btnEqual" value="=" /></td>
+            <td><input type="button" id="btn0" value="0" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btnDecimal" value="." style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btnEqual" value="=" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btnOpenP" value="(" style="height:40px;width:60px;"/></td>
+            <td><input type="button" id="btnCloseP" value=")" style="height:40px;width:60px;"/></td>
         </tr>
     </table>
 
@@ -51,7 +53,7 @@
 <script>
     $(function () {
         $("#operand1").keypress(function (exp) {
-            if (String.fromCharCode(exp.keyCode).match(/[^0-9+-/*]/g)) {
+            if (String.fromCharCode(exp.keyCode).match(/[^0-9+-/*()]/g)) {
                 return false;
             }
         });
@@ -143,6 +145,24 @@
             }
             else {
                 $("#operand1").val(input + "0");
+            }
+        });
+        $("#btnOpenP").click(function () {
+            let input = document.getElementById("operand1").value;
+            if (input == "0") {
+                $("#operand1").val("(");
+            }
+            else {
+                $("#operand1").val(input + "(");
+            }
+        });
+        $("#btnCloseP").click(function () {
+            let input = document.getElementById("operand1").value;
+            if (input == "0") {
+                $("#operand1").val(")");
+            }
+            else {
+                $("#operand1").val(input + ")");
             }
         });
         $("#btnClear").click(function () {
