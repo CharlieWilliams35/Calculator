@@ -19,7 +19,14 @@ namespace Calculator.Controllers
         {
             DataTable dt = new DataTable();
             var result = dt.Compute(input, "");
-            return result.ToString();
+            if (result.ToString() == input)
+            {
+                return "Error";
+            }
+            else
+            {
+                return result.ToString();
+            }
 
         }
 
